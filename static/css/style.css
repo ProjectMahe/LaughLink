@@ -1,0 +1,30 @@
+:root{--bg:#0f1724;--card:#0b1220;--accent:#ffb86b;--muted:#9aa5b1;--glass:rgba(255,255,255,0.04);}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:linear-gradient(135deg,#0b1220 0%, #071427 100%);color:#e6eef6;min-height:100vh}
+.container{max-width:980px;margin:24px auto;padding:16px}
+h1{margin:0 0 12px;font-size:28px}
+.card{background:var(--card);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.6);}
+input,textarea,button{font-family:inherit}
+input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
+button{padding:10px 14px;border-radius:10px;border:none;background:var(--accent);color:#0b1220;font-weight:600;cursor:pointer}
+.row{display:flex;gap:8px;margin-top:8px}
+.row input{flex:1}
+.room-info{display:flex;gap:24px;align-items:flex-start;margin-bottom:12px}
+.image-wrap{display:flex;justify-content:center;align-items:center;min-height:220px;background:var(--glass);border-radius:10px;overflow:hidden}
+.image-wrap img{max-width:100%;height:auto;display:block}
+.caption-entry{margin-top:12px}
+.controls{display:flex;gap:12px;margin-top:12px}
+.controls a{align-self:center;color:var(--accent)}
+.caption-item{background:rgba(255,255,255,0.02);padding:8px;border-radius:8px;margin-bottom:8px}
+
+/* Mobile adjustments */
+@media (max-width:600px){
+  .container{padding:12px;margin:8px}
+  h1{font-size:22px}
+  .room-info{flex-direction:column}
+  .image-wrap{min-height:160px}
+  .row{flex-direction:column}
+}
+
+/* playful touches */
+small{color:var(--muted)}
