@@ -6,7 +6,7 @@
 ---
 
 ## 📸 Thumbnail
-![LaughLink Banner](assets/thumbnail.png)
+![LaughLink Banner](assets/LaughLink_Thumbnail.jpg)
 
 ---
 
@@ -76,22 +76,22 @@ After all, laughter *is* the best multiplayer game.
 
 ## 🖼️ Gallery
 ### 📌 Homepage
-![Homepage Screenshot](assets/homepage.png)
+![Homepage Screenshot](assets/homepage.jpg)
 
 ### 📌 Meme Battle in Action
-![Meme Battle Screenshot](assets/meme-battle.png)
+![Meme Battle Screenshot](assets/meme-battle.jpg)
 
 ### 📌 Voting Screen
-![Voting Screenshot](assets/voting.png)
+![Voting Screenshot](assets/voting.jpg)
 
 ---
 
 ## 😂 Example Memes
 | Meme | Caption |
 |------|---------|
-| ![meme1](assets/meme1.png) | "When you submit your hackathon project 5 seconds before the deadline" |
-| ![meme2](assets/meme10.png) | "Debugging at 3 AM be like…" |
-| ![meme3](assets/meme3.png) | "That moment when it works on your machine" |
+| ![meme1](assets/meme1.jpg) | "When you submit your hackathon project 5 seconds before the deadline" |
+| ![meme2](assets/meme10.jpg) | "Debugging at 3 AM be like…" |
+| ![meme3](assets/meme3.jpg) | "That moment when it works on your machine" |
 
 ---
 
