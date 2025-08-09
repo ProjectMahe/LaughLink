@@ -6,7 +6,7 @@
 ---
 
 ## 📸 Thumbnail
-![LaughLink Banner](assets/LaughLink_Thumbnail.jpg)
+![LaughLink Banner](assets/LaughLink_Thumbnail.png.jpg)
 
 ---
 
@@ -79,10 +79,10 @@ After all, laughter *is* the best multiplayer game.
 ![Homepage Screenshot](assets/homepage.jpg)
 
 ### 📌 Meme Battle in Action
-![Meme Battle Screenshot](assets/meme-battle.jpg)
+![Meme Battle Screenshot](assets/meme-battel.jpg)
 
 ### 📌 Voting Screen
-![Voting Screenshot](assets/voting.jpg)
+![Voting Screenshot](assets/votting.jpg)
 
 ---
 
