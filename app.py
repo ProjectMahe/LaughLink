@@ -234,3 +234,13 @@ if __name__ == '__main__':
         print('Initializing DB... run init_db.py separately if you want control')
     print('Starting LaughLink on http://127.0.0.1:5000')
     socketio.run(app, host='0.0.0.0', port=5000)
+
+@app.route('/api/leaderboard/<room_id>')
+def api_leaderboard(room_id):
+    conn = get_db_conn()
+    cur = conn.cursor()
+    cur.execute('SELECT username, score FROM players WHERE room_id = ? ORDER BY score DESC', (room_id,))
+    rows = cur.fetchall()
+    conn.close()
+    leaderboard = [{'username': r[0], 'score': r[1]} for r in rows]
+    return jsonify({'leaderboard': leaderboard})
