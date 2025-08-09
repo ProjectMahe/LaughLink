@@ -84,6 +84,9 @@ After all, laughter *is* the best multiplayer game.
 ### 📌 Voting Screen
 ![Voting Screenshot](assets/votting.jpg)
 
+### 📌 Leaderboard Screen
+![Leaderboard Screenshot](assets/IMG_20250809_211758.jpg)
+
 ---
 
 ## 😂 Example Memes
