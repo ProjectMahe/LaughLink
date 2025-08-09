@@ -1,31 +1,118 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Scoreboard — {{ room_id }}</title>
-  <link rel="stylesheet" href="/static/css/style.css">
-  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Scoreboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #00aaff, #00ffaa);
+            color: #fff;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        th {
+            background: rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+        }
+        tr:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        @media (max-width: 600px) {
+            table {
+                font-size: 0.9em;
+            }
+            th, td {
+                padding: 8px;
+            }
+        }
+        .refresh-btn {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .refresh-btn:hover {
+            background: #ddd;
+        }
+    </style>
 </head>
 <body>
-  <main class="container">
-    <h1>Scoreboard</h1>
-    <div id="leader"></div>
-    <a href="/">Home</a>
-  </main>
-  <script>
-    const ROOM_ID = "{{ room_id }}";
-  </script>
-  <script>
-    // Fetch leaderboard via simple AJAX
-    fetch('/api/leaderboard/' + ROOM_ID).then(res => res.json()).then(data => {
-      const leader = document.getElementById('leader');
-      if (data.leaderboard) {
-        leader.innerHTML = '<ol>' + data.leaderboard.map(x => '<li>' + x.username + ' — ' + x.score + '</li>').join('') + '</ol>';
-      } else {
-        leader.innerText = 'No scores yet.';
-      }
-    });
-  </script>
+    <header>🏆 Live Scoreboard 🏆</header>
+
+    <button class="refresh-btn" onclick="loadScores()">🔄 Refresh Scores</button>
+
+    <table id="scoreTable">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Player</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td colspan="3">Loading scores...</td></tr>
+        </tbody>
+    </table>
+
+    <script>
+        async function loadScores() {
+            try {
+                const response = await fetch("/get_scores");
+                const data = await response.json();
+
+                let tableBody = document.querySelector("#scoreTable tbody");
+                tableBody.innerHTML = "";
+
+                if (data.length === 0) {
+                    tableBody.innerHTML = "<tr><td colspan='3'>No scores yet</td></tr>";
+                    return;
+                }
+
+                data.sort((a, b) => b.score - a.score);
+
+                data.forEach((player, index) => {
+                    let row = `<tr>
+                        <td>${index + 1}</td>
+                        <td>${player.name}</td>
+                        <td>${player.score}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            } catch (err) {
+                console.error("Error loading scores:", err);
+            }
+        }
+
+        // Load scores when page opens
+        window.onload = loadScores;
+    </script>
 </body>
-</html>
+              </html>
