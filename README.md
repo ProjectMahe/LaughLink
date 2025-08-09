@@ -65,7 +65,7 @@ After all, laughter *is* the best multiplayer game.
 ---
 
 ## 📺 Demo Video
-🎥 **YouTube Demo:** [Watch Here](https://youtu.be/demo-video-link) *(Replace with your actual demo link)*
+🎥 **YouTube Demo:** [Watch Here](https://youtube.com/shorts/ScdL1ypEWHo?feature=share) *(Replace with your actual demo link)*
 
 ---
 
