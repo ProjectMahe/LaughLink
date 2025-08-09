@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Room {{ room_id }} — LaughLink</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+  <main class="container">
+    <h1>LaughLink</h1>
+    <div class="room-info">
+      <div>Room: <strong id="roomId">{{ room_id }}</strong></div>
+      <div>Players: <ul id="playersList"></ul></div>
+    </div>
+
+    <div id="gameArea" class="card">
+      <div id="roundInfo"></div>
+
+      <div id="imageWrap" class="image-wrap">
+        <img id="memeImg" src="" alt="meme" />
+      </div>
+
+      <div id="captionEntry" class="caption-entry">
+        <textarea id="captionText" placeholder="Write your caption..."></textarea>
+        <button id="submitCaption">Submit Caption</button>
+      </div>
+
+      <div id="votingArea" style="display:none">
+        <h3>Vote for the funniest</h3>
+        <div id="captionsList"></div>
+      </div>
+
+      <div id="resultArea" style="display:none"></div>
+
+    </div>
+
+    <div class="controls">
+      <button id="startRound">Start Round</button>
+      <a id="scoreboardLink" href="/scoreboard/{{ room_id }}">View Scoreboard</a>
+    </div>
+
+  </main>
+
+  <script>
+    const ROOM_ID = "{{ room_id }}";
+  </script>
+  <script src="/static/js/room.js"></script>
+</body>
+</html>
