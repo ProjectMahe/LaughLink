@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scoreboard — {{ room_id }}</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+  <main class="container">
+    <h1>Scoreboard</h1>
+    <div id="leader"></div>
+    <a href="/">Home</a>
+  </main>
+  <script>
+    const ROOM_ID = "{{ room_id }}";
+  </script>
+  <script>
+    // Fetch leaderboard via simple AJAX
+    fetch('/api/leaderboard/' + ROOM_ID).then(res => res.json()).then(data => {
+      const leader = document.getElementById('leader');
+      if (data.leaderboard) {
+        leader.innerHTML = '<ol>' + data.leaderboard.map(x => '<li>' + x.username + ' — ' + x.score + '</li>').join('') + '</ol>';
+      } else {
+        leader.innerText = 'No scores yet.';
+      }
+    });
+  </script>
+</body>
+</html>
